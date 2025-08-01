@@ -62,9 +62,20 @@ public class CharacterController : MonoBehaviour
 
     private void HandleMovement()
     {
-        rb.MovePosition(transform.position + new Vector3(_moveDirection.x, 0, _moveDirection.y) * Time.fixedDeltaTime * moveSpeed);
-        if (_moveDirection.x != 0 || _moveDirection.y != 0) {
-            transform.rotation = Quaternion.LookRotation(new Vector3(_moveDirection.x, 0, _moveDirection.y));
+        float angle = -45f * Mathf.Deg2Rad;
+        float cos = Mathf.Cos(angle);
+        float sin = Mathf.Sin(angle);
+
+        Vector3 isoDirection = new Vector3(
+            _moveDirection.x * cos - _moveDirection.y * sin,
+            0,
+            _moveDirection.x * sin + _moveDirection.y * cos
+        ).normalized;
+
+        rb.MovePosition(transform.position + isoDirection * Time.fixedDeltaTime * moveSpeed);
+
+        if (isoDirection != Vector3.zero) {
+            transform.rotation = Quaternion.LookRotation(isoDirection);
         }
     }
 
