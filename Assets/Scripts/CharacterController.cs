@@ -22,6 +22,7 @@ public class CharacterController : MonoBehaviour
     private float _currentDashTime;
     private float _timeSinceLastDash;
 
+
     void Start()
     {
         _isDashing = false;
