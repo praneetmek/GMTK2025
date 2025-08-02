@@ -7,6 +7,7 @@ public class CharacterController : MonoBehaviour
 {
     public Rigidbody rb;
     private Vector2 _moveDirection;
+    public Animator animator;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     public InputActionReference move;
@@ -32,7 +33,6 @@ public class CharacterController : MonoBehaviour
     public virtual void Update()
     {
         _moveDirection = move.action.ReadValue<Vector2>();
-
     }
 
     private void FixedUpdate()
@@ -71,6 +71,10 @@ public class CharacterController : MonoBehaviour
         ).normalized;
 
         rb.MovePosition(transform.position + isoDirection * Time.fixedDeltaTime * moveSpeed);
+
+        // Animation blend logic
+        float blendValue = Mathf.Clamp01(_moveDirection.magnitude);
+        animator.SetFloat("Blend", blendValue);
 
         if (isoDirection != Vector3.zero) {
             transform.rotation = Quaternion.LookRotation(isoDirection);
