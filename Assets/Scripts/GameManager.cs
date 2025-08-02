@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    public LoopScript loopCanvas;
     public RectTransform healthBar;
     public float HP = 100;
     public float Essence = 0;
@@ -46,6 +47,7 @@ public class GameManager : MonoBehaviour
     public void AddEssence(int i)
     {
         Essence += i;
+        loopCanvas.AddEssence();
     }
 
 

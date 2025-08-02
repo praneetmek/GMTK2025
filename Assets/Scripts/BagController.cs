@@ -37,6 +37,7 @@ public class BagScript : MonoBehaviour
         if(other.gameObject.tag == "Essence")
         {
             GameManager.Instance.AddEssence(1);
+
             StartCoroutine(AbsorbEssence());
             Destroy(other.gameObject);
         }
