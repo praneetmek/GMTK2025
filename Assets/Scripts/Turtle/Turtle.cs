@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using System;
 
 public class Turtle : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class Turtle : MonoBehaviour
     public UIAnimations uIAnimations;
 
     private NavMeshAgent agent;
+
+    // Add this event for when the turtle starts following
+    public event Action OnStartFollowing;
 
     void Start()
     {
@@ -48,6 +52,15 @@ public class Turtle : MonoBehaviour
         {
             uIAnimations.HideUI();
             other.GetComponent<AdventurerController>().currentTurtle = null;
+        }
+    }
+
+    public void StartFollowing()
+    {
+        if (!isFollowing)
+        {
+            isFollowing = true;
+            OnStartFollowing?.Invoke();
         }
     }
 }
