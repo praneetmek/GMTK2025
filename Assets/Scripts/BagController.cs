@@ -6,9 +6,12 @@ public class BagScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public float damageTime = 0.1f;
     public Material damageMaterial;
+    public Material essenceMaterial;
 
     private Material _defaultMaterial;
     private MeshRenderer _mr;
+
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -30,6 +33,14 @@ public class BagScript : MonoBehaviour
             Destroy(other.gameObject);
 
         }
+
+        if(other.gameObject.tag == "Essence")
+        {
+            GameManager.Instance.AddEssence(1);
+            StartCoroutine(AbsorbEssence());
+            Destroy(other.gameObject);
+        }
+
     }
 
 
@@ -38,6 +49,13 @@ public class BagScript : MonoBehaviour
 
         _mr.material = damageMaterial;
         yield return new WaitForSeconds(damageTime);
+        _mr.material = _defaultMaterial;
+    }
+    IEnumerator AbsorbEssence()
+    {
+
+        _mr.material = essenceMaterial;
+        yield return new WaitForSeconds(damageTime/2);
         _mr.material = _defaultMaterial;
     }
 }
