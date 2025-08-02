@@ -11,6 +11,7 @@ public class CharacterController : MonoBehaviour
     public InputActionReference move;
     public InputActionReference dash;
     public InputActionReference attack;
+    public InputActionReference interact;
 
     public float moveSpeed;
     public float dashTime;
@@ -28,7 +29,7 @@ public class CharacterController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public virtual void Update()
     {
         _moveDirection = move.action.ReadValue<Vector2>();
 
@@ -51,7 +52,6 @@ public class CharacterController : MonoBehaviour
     {
         dash.action.started += OnDash;
         attack.action.started += OnAttack;
-
     }
 
     private void OnDisable()
@@ -93,7 +93,7 @@ public class CharacterController : MonoBehaviour
     {
         rb.linearVelocity = transform.forward * dashSpeed;
         _currentDashTime += Time.fixedDeltaTime;
-        if(_currentDashTime > dashTime)
+        if (_currentDashTime > dashTime)
         {
             _isDashing = false;
             rb.linearVelocity = Vector3.zero;
