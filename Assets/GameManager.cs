@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,6 +9,13 @@ public class GameManager : MonoBehaviour
 
     public CharacterController fighterCharacter;
     public CharacterController explorerCharacter;
+
+    public Camera fighterCamera;
+    public Camera explorerCamera;
+
+    public float CameraSwapTime;
+
+    private float _timer;
 
     public enum PlayerType
     {
@@ -29,12 +37,13 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         CurrentPlayer = PlayerType.FIGHTER;
+        _timer = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        _timer += Time.deltaTime;
     }
 
     private void OnEnable()
@@ -49,12 +58,26 @@ public class GameManager : MonoBehaviour
             CurrentPlayer = PlayerType.EXPLORER;
             explorerCharacter.enabled = true;
             fighterCharacter.enabled = false;
+            StartCoroutine(SwapCamera(_timer, 0.25f));
         }
         else
         {
             CurrentPlayer = PlayerType.FIGHTER;
             explorerCharacter.enabled = false;
             fighterCharacter.enabled = true;
+            StartCoroutine(SwapCamera(_timer, 0.75f));
+
+        }
+    }
+
+    private IEnumerator SwapCamera(float startTime, float leftAmount)
+    {
+        while(Mathf.Abs(fighterCamera.rect.width - leftAmount) > 0.02f)
+        {
+            float newWidth = Mathf.Lerp(1 - leftAmount, leftAmount, (_timer - startTime) / CameraSwapTime);
+            fighterCamera.rect = new Rect(0, 0, newWidth, 1);
+            explorerCamera.rect = new Rect(newWidth, 0, 1 - newWidth, 1);
+            yield return null; 
         }
     }
 }
