@@ -4,7 +4,6 @@ using UnityEngine;
 public class BagScript : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public int HP = 100;
     public float damageTime = 0.1f;
     public Material damageMaterial;
 
@@ -26,7 +25,7 @@ public class BagScript : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            HP--;
+            GameManager.Instance.ChangeHP(-1);
             StartCoroutine(Stun());
             Destroy(other.gameObject);
 

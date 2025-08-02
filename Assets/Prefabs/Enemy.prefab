@@ -125,6 +125,7 @@ MonoBehaviour:
   HP: 100
   stunTime: 0.25
   staggerSpeed: 10
+  DamageMaterial: {fileID: 2100000, guid: b9f16f05b2451114d820ad0835123227, type: 2}
   Target: {fileID: 0}
 --- !u!54 &7620231688492203147
 Rigidbody:

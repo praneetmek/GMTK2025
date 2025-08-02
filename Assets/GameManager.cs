@@ -5,79 +5,36 @@ using UnityEngine.InputSystem;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public InputActionReference swap;
-
-    public CharacterController fighterCharacter;
-    public CharacterController explorerCharacter;
-
-    public Camera fighterCamera;
-    public Camera explorerCamera;
-
-    public float CameraSwapTime;
+    public RectTransform healthBar;
+    public float HP = 100;
 
     private float _timer;
 
-    public enum PlayerType
-    {
-        FIGHTER,
-        EXPLORER
-    }
-
-    public PlayerType CurrentPlayer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     private void Awake()
     {
         if (Instance == null)
             Instance = this;
-        CurrentPlayer = PlayerType.FIGHTER;
-        explorerCharacter.enabled = false;
+
     }
 
     void Start()
     {
-        CurrentPlayer = PlayerType.FIGHTER;
-        _timer = 0;
+
     }
 
     // Update is called once per frame
     void Update()
     {
         _timer += Time.deltaTime;
+        healthBar.sizeDelta = new Vector2(HP, 100);
     }
 
-    private void OnEnable()
+    public void ChangeHP(int i)
     {
-        swap.action.started += OnSwap;
+        HP += i;
     }
 
-    private void OnSwap(InputAction.CallbackContext obj)
-    {
-        if(CurrentPlayer == PlayerType.FIGHTER)
-        {
-            CurrentPlayer = PlayerType.EXPLORER;
-            explorerCharacter.enabled = true;
-            fighterCharacter.enabled = false;
-            StartCoroutine(SwapCamera(_timer, 0.25f));
-        }
-        else
-        {
-            CurrentPlayer = PlayerType.FIGHTER;
-            explorerCharacter.enabled = false;
-            fighterCharacter.enabled = true;
-            StartCoroutine(SwapCamera(_timer, 0.75f));
 
-        }
-    }
-
-    private IEnumerator SwapCamera(float startTime, float leftAmount)
-    {
-        while(Mathf.Abs(fighterCamera.rect.width - leftAmount) > 0.02f)
-        {
-            float newWidth = Mathf.Lerp(1 - leftAmount, leftAmount, (_timer - startTime) / CameraSwapTime);
-            fighterCamera.rect = new Rect(0, 0, newWidth, 1);
-            explorerCamera.rect = new Rect(newWidth, 0, 1 - newWidth, 1);
-            yield return null; 
-        }
-    }
 }

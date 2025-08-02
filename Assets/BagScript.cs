@@ -3,7 +3,6 @@ using System.Collections;
 
 public class BagController : MonoBehaviour
 {
-    public int HP = 100;
     public float damageTime = 0.1f;
 
     private Color _defaultColor;
@@ -25,7 +24,7 @@ public class BagController : MonoBehaviour
         Debug.Log("Trigger detected");
         if (other.gameObject.tag == "Enemy")
         {
-            HP--;
+            GameManager.Instance.ChangeHP(-1);
             StartCoroutine(Stun());
 
         }
