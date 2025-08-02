@@ -1963,8 +1963,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c9527f0dc13d8c24ab90b77dd6a9e7b7, type: 3}
   - {fileID: 8300000, guid: 177ba2fcbeeb2af49b63e360e2dc65e5, type: 3}
   attackMissClips:
-  - {fileID: 8300000, guid: 9e64a393bd5884348a6ba5c81df068d8, type: 3}
-  - {fileID: 8300000, guid: 582aa07503f11d14299aa4dff3cacc97, type: 3}
+  - {fileID: 8300000, guid: 7e4631252f2ef6340b6e6a8b1620ae82, type: 3}
+  - {fileID: 8300000, guid: 6e326251a3d840341a4dd3fd9aa14e04, type: 3}
   attack: {fileID: 1120369429361536294, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   attackMissStunDuration: 0.35
   attackRadius: 1.3
