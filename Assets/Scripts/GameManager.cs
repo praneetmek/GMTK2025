@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public RectTransform healthBar;
     public float HP = 100;
+    public float Essence = 0;
 
     private float _timer;
 
@@ -40,6 +41,11 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene(2); 
         }
+    }
+
+    public void AddEssence(int i)
+    {
+        Essence += i;
     }
 
 

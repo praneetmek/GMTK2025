@@ -10,6 +10,7 @@ public class EmenyController : MonoBehaviour
     public Material DamageMaterial;
 
     public GameObject Target;
+    public GameObject OrbPrefab;
     private Material _defaultMaterial;
 
     private MeshRenderer _mr;
@@ -48,6 +49,7 @@ public class EmenyController : MonoBehaviour
         HP -= damage;
         if(HP <= 0)
         {
+            Instantiate(OrbPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
         StartCoroutine("Stun");
