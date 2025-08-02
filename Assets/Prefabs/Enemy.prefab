@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 100
-  stunTime: 0.1
+  stunTime: 0.25
   staggerSpeed: 10
   Target: {fileID: 0}
 --- !u!54 &7620231688492203147
@@ -152,4 +152,4 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1

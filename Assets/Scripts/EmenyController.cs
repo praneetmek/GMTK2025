@@ -43,7 +43,7 @@ public class EmenyController : MonoBehaviour
     public void TakeDamage(float damage, Vector3 staggerDir)
     {
         HP -= damage;
-        if(HP < 0)
+        if(HP <= 0)
         {
             Destroy(gameObject);
         }
@@ -64,7 +64,7 @@ public class EmenyController : MonoBehaviour
     IEnumerator Stagger(Vector3 staggerDir)
     {
         _rb.linearVelocity = staggerDir*4;
-        yield return new WaitForSeconds(stunTime);
+        yield return new WaitForSeconds(stunTime/2);
         _rb.linearVelocity = Vector3.zero;
     }
 }
