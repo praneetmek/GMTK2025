@@ -23,7 +23,6 @@ public class EnemyManager : MonoBehaviour
     void Update()
     {
         int numEnemies = GetNumberOfEnemiesInWorld();
-        Debug.Log(numEnemies);
         if(numEnemies < 10)
         {
             SpawnEnemy();

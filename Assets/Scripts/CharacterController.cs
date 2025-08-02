@@ -8,7 +8,6 @@ public class CharacterController : MonoBehaviour
     private Vector2 _moveDirection;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    public GameManager.PlayerType playerType;
     public InputActionReference move;
     public InputActionReference dash;
     public InputActionReference attack;
