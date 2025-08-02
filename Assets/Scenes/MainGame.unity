@@ -1106,6 +1106,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2041ef168818c7d4c8b8d630adb983b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1635724662 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7039177831039571344, guid: d57f6e773150ee04eaaeee1819207c19, type: 3}
+  m_PrefabInstance: {fileID: 2039316415}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1635724667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1468,6 +1473,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fighter
       objectReference: {fileID: 0}
+    - target: {fileID: 5458300971481099762, guid: d57f6e773150ee04eaaeee1819207c19, type: 3}
+      propertyPath: Target.TrackingTarget
+      value: 
+      objectReference: {fileID: 1635724662}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1531,6 +1540,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Explorer
       objectReference: {fileID: 0}
+    - target: {fileID: 7379069170551725162, guid: 63038ed45ac84dd4980125a0321ac740, type: 3}
+      propertyPath: Target.TrackingTarget
+      value: 
+      objectReference: {fileID: 1488910992}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
