@@ -29,8 +29,9 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         _timer += Time.deltaTime;
-        healthBar.sizeDelta = new Vector2(HP, 100);
-    }
+        healthBar.localScale = new Vector3(HP / 100.0f, 1, 1);
+/*        healthBar.sizeDelta = new Vector2(HP, 100);
+*/    }
 
     public void ChangeHP(int i)
     {

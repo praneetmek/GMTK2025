@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,13 +11,11 @@ public class CharacterController : MonoBehaviour
 
     public InputActionReference move;
     public InputActionReference dash;
-    public InputActionReference attack;
 
     public float moveSpeed;
     public float dashTime;
     public float dashSpeed;
     public float timeBetweenDashes;
-    public float attackRadius;
 
     private bool _isDashing;
     private float _currentDashTime;
@@ -51,14 +50,12 @@ public class CharacterController : MonoBehaviour
     private void OnEnable()
     {
         dash.action.started += OnDash;
-        attack.action.started += OnAttack;
 
     }
 
     private void OnDisable()
     {
         dash.action.started -= OnDash;
-        attack.action.started -= OnAttack;
     }
 
     private void HandleMovement()
@@ -82,7 +79,7 @@ public class CharacterController : MonoBehaviour
 
     private void OnDash(InputAction.CallbackContext obj)
     {
-        if(_timeSinceLastDash > timeBetweenDashes)
+        if(CanDash())
         {
             _isDashing = true;
             _currentDashTime = 0;
@@ -90,6 +87,10 @@ public class CharacterController : MonoBehaviour
 
     }
 
+    public bool CanDash()
+    {
+        return _timeSinceLastDash > timeBetweenDashes;
+    }
     private void HandleDash()
     {
         rb.linearVelocity = transform.forward * dashSpeed;
@@ -102,21 +103,6 @@ public class CharacterController : MonoBehaviour
         }
     }
 
-    private void OnAttack(InputAction.CallbackContext obj)
-    {
 
-        Collider[] colliders = Physics.OverlapSphere(transform.position + transform.forward, attackRadius);
-        foreach (var collider in colliders)
-        {
-            if(collider.gameObject.tag == "Enemy")
-            {
-                collider.gameObject.GetComponent<EmenyController>().TakeDamage(20, transform.forward);
-                Debug.Log("HIT ENEMY");
-            }
-            else
-            {
-                Debug.Log(collider.tag);
-            }
-        }
-    }
+
 }
