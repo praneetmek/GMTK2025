@@ -10,6 +10,7 @@ public class SwapManager : MonoBehaviour
     public CharacterController fighterCharacter;
     public CharacterController explorerCharacter;
 
+    public RectTransform LoopUI;
     public Camera fighterCamera;
     public Camera explorerCamera;
 
@@ -77,6 +78,7 @@ public class SwapManager : MonoBehaviour
             float newWidth = Mathf.Lerp(1 - leftAmount, leftAmount, (_timer - startTime) / CameraSwapTime);
             fighterCamera.rect = new Rect(0, 0, newWidth, 1);
             explorerCamera.rect = new Rect(newWidth, 0, 1 - newWidth, 1);
+            LoopUI.anchoredPosition = new Vector2(1920 * newWidth - LoopUI.rect.width/2, LoopUI.anchoredPosition.y);
             yield return null;
         }
     }
