@@ -25,7 +25,7 @@ public class BagScript : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            GameManager.Instance.ChangeHP(-1);
+            GameManager.Instance.ChangeHP(-10);
             StartCoroutine(Stun());
             Destroy(other.gameObject);
 

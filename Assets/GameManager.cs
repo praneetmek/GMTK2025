@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -34,6 +35,10 @@ public class GameManager : MonoBehaviour
     public void ChangeHP(int i)
     {
         HP += i;
+        if(HP <= 0)
+        {
+            SceneManager.LoadScene(2); 
+        }
     }
 
 
