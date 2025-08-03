@@ -60,11 +60,4 @@ public class EnemyManager : MonoBehaviour
         float random = Random.Range(0f, 260f);
         return spawnRadius * new Vector2(Mathf.Cos(random), Mathf.Sin(random));
     }
-
-    // Draw spawn radius gizmo in editor
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, spawnRadius);
-    }
 }

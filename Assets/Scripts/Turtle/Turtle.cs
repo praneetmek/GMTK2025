@@ -66,13 +66,13 @@ public class Turtle : MonoBehaviour
         if (!isFollowing)
         {
             isFollowing = true;
-            PlayFollowSFX(); // Play SFX when starting to follow
+            // PlayFollowSFX(); // Play SFX when starting to follow
             OnStartFollowing?.Invoke();
         }
     }
 
     // Play a random SFX from the list
-    private void PlayFollowSFX()
+    public void PlayFollowSFX()
     {
         if (followSFX != null && followSFX.Count > 0 && audioSource != null)
         {

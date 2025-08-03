@@ -23,6 +23,7 @@ public class AdventurerController : MonoBehaviour
             currentTurtle.uIAnimations.HideUI();
             currentTurtle.isFollowing = true;
             turtlesCollected.Add(currentTurtle);
+            currentTurtle.PlayFollowSFX();
             currentTurtle = null;
         }
         if (isOnMotherTurtle != null && turtlesCollected.Count > 0)
