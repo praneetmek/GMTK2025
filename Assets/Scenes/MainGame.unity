@@ -12520,6 +12520,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7159c19df22a6c346b5b333e40a13977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainUI: {fileID: 1496673096}
+  MenuClip: {fileID: 8300000, guid: 85906e72845aa9c4ca95e79565ed9104, type: 3}
+  GameClip: {fileID: 8300000, guid: efd8a1e6ca1e65848a109f4ddaba0291, type: 3}
 --- !u!82 &1361528927
 AudioSource:
   m_ObjectHideFlags: 0
@@ -12531,7 +12534,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 4492020736227433287, guid: 5f70b06e55afddd499e7bd0da903c6f0, type: 2}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: efd8a1e6ca1e65848a109f4ddaba0291, type: 3}
+  m_Resource: {fileID: 8300000, guid: 85906e72845aa9c4ca95e79565ed9104, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.4
   m_Pitch: 1
