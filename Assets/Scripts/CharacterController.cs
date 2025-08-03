@@ -18,15 +18,21 @@ public class CharacterController : MonoBehaviour
     public float dashTime;
     public float dashSpeed;
     public float timeBetweenDashes;
+    public AudioClip dashClip;
+    public AudioClip[] footsteps;
 
+    private AudioSource _audioSource;
     private bool _isDashing;
     private float _currentDashTime;
     private float _timeSinceLastDash;
+    private bool _isWalking;
 
 
     void Start()
     {
         _isDashing = false;
+        _audioSource = GetComponent<AudioSource>();
+        StartCoroutine(HandleStepsAudio());
     }
 
     // Update is called once per frame
@@ -43,6 +49,13 @@ public class CharacterController : MonoBehaviour
         }
         else
         {
+            if(_moveDirection != Vector2.zero)
+            {
+                _isWalking = true;
+            }
+            else { 
+                _isWalking = false; 
+            }
             _timeSinceLastDash += Time.fixedDeltaTime;
            HandleMovement();
         }
@@ -85,6 +98,8 @@ public class CharacterController : MonoBehaviour
     {
         if(CanDash())
         {
+
+            _audioSource.PlayOneShot(dashClip);
             _isDashing = true;
             _currentDashTime = 0;
         }
@@ -107,6 +122,21 @@ public class CharacterController : MonoBehaviour
         }
     }
 
+    private IEnumerator HandleStepsAudio()
+    {
+        int footstepsIndex = 0;
+        while (true)
+        {
+            if (_isWalking)
+            {
+                _audioSource.PlayOneShot(footsteps[footstepsIndex]);
+                footstepsIndex++;
+                footstepsIndex%=footsteps.Length;
+            }
+            yield return new WaitForSeconds(0.3f);
+        }
+
+    }
 
 
 }

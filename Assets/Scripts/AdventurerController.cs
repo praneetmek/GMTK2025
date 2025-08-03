@@ -2,21 +2,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class AdventurerController : CharacterController
+public class AdventurerController : MonoBehaviour
 {
     public Turtle currentTurtle;
     public List<Turtle> turtlesCollected = new List<Turtle>();
     public MotherTurtle isOnMotherTurtle;
+
+    public InputActionReference interact;
 
     void OnEnable()
     {
         interact.action.started += OnInteract;
     }
 
-    void Start()
-    {
-        
-    }
 
     private void OnInteract(InputAction.CallbackContext obj)
     {
@@ -43,8 +41,4 @@ public class AdventurerController : CharacterController
         turtlesCollected.Clear();
     }
 
-    public override void Update()
-    {
-        base.Update();
-    }
 }
