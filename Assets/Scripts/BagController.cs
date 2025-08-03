@@ -7,6 +7,7 @@ public class BagScript : MonoBehaviour
     public float damageTime = 0.1f;
     public Material damageMaterial;
     public Material essenceMaterial;
+    public LoopScript loop;
 
     private Material _defaultMaterial;
     private MeshRenderer _mr;
@@ -36,7 +37,7 @@ public class BagScript : MonoBehaviour
 
         if(other.gameObject.tag == "Essence")
         {
-            GameManager.Instance.AddEssence(1);
+            loop.AddEssence();
 
             StartCoroutine(AbsorbEssence());
             Destroy(other.gameObject);

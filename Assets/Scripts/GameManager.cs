@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public RectTransform healthBar;
     public float HP = 100;
     public float Essence = 0;
+    public float Turtles = 0;
 
     private float _timer;
 
@@ -44,10 +45,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
     public void AddEssence(int i)
     {
-        Essence += i;
-        loopCanvas.AddEssence();
+        Essence = Mathf.Min(100, Essence + 1);
+    }
+
+    public void AddTurtle()
+    {
+        Turtles = Mathf.Min(5, Turtles + 1);
     }
 
 
