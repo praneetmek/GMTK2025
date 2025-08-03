@@ -4,10 +4,10 @@ using static GameManager;
 public class EnemyManager : MonoBehaviour
 {
     public static EnemyManager Instance;
-    public Transform world;
     public GameObject target;
 
     public float spawnRadius = 30;
+    public float spawnRate = 0.2f;
     public EmenyController enemy;
 
     private float _timeSinceLastSpawn;
@@ -27,7 +27,7 @@ public class EnemyManager : MonoBehaviour
     {
         _timeSinceLastSpawn += Time.deltaTime;
         int numEnemies = GetNumberOfEnemiesInWorld();
-        if(numEnemies < 10 && _timeSinceLastSpawn > 0.5)
+        if(_timeSinceLastSpawn > 1/spawnRate)
         {
             _timeSinceLastSpawn = 0;
             SpawnEnemy();
@@ -37,9 +37,10 @@ public class EnemyManager : MonoBehaviour
     int GetNumberOfEnemiesInWorld()
     {
         int numChildren = 0;
-        for (int i = 0; i < world.childCount; i++)
+
+        for (int i = 0; i < transform.childCount; i++)
         {
-            if (world.GetChild(i).tag == "Enemy")
+            if (transform.GetChild(i).tag == "Enemy")
             {
                 numChildren++;
             }
@@ -50,7 +51,7 @@ public class EnemyManager : MonoBehaviour
     void SpawnEnemy()
     {
         Vector2 randomSpawnPoint = RandomSpawnPoint();
-        EmenyController e = Instantiate(enemy, transform.position + new Vector3(randomSpawnPoint.x, 0.55f, randomSpawnPoint.y), Quaternion.identity, world);
+        EmenyController e = Instantiate(enemy, transform.position + new Vector3(randomSpawnPoint.x, 0.55f, randomSpawnPoint.y), Quaternion.identity, transform);
         e.Target = target;
     }
 

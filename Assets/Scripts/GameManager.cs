@@ -9,8 +9,8 @@ public class GameManager : MonoBehaviour
     public LoopScript loopCanvas;
     public RectTransform healthBar;
     public float HP = 100;
-    public float Essence = 0;
-    public float Turtles = 0;
+    public int Essence = 0;
+    public int Turtles = 0;
 
     private float _timer;
 
