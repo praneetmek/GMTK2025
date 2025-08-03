@@ -10,13 +10,12 @@ public class BagScript : MonoBehaviour
     public LoopScript loop;
 
     private Material _defaultMaterial;
-    private MeshRenderer _mr;
+    public MeshRenderer _mr;
 
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _mr = gameObject.GetComponent<MeshRenderer>();
         _defaultMaterial = _mr.material;
     }
 
