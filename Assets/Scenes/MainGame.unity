@@ -153,7 +153,7 @@ Transform:
   - {fileID: 1186435577}
   - {fileID: 530596399}
   - {fileID: 1756830381}
-  - {fileID: 1546172648}
+  - {fileID: 1828830729}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &25336424 stripped
@@ -452,18 +452,13 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6772626981877678859, guid: 32cad531237dce64392c8cff19c3eb2d, type: 3}
   m_PrefabInstance: {fileID: 4851521264677864521}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &658050782 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9481c9adcaffe394a89d1c570a0b182a, type: 3}
-  m_PrefabInstance: {fileID: 694628012}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &694628012
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1477514176}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 9481c9adcaffe394a89d1c570a0b182a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -524,7 +519,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1477514176}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 8e20e390c40830748b6c121547e5e9a4, type: 3}
       propertyPath: m_LocalScale.x
@@ -903,7 +898,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swap: {fileID: -5594873154675137950, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   fighterCharacter: {fileID: 1635724661}
-  explorerCharacter: {fileID: 0}
+  explorerCharacter: {fileID: 1488910998}
   LoopUI: {fileID: 25336424}
   fighterCamera: {fileID: 1595635490}
   explorerCamera: {fileID: 1864331817}
@@ -1281,11 +1276,6 @@ Transform:
 Camera:
   m_CorrespondingSourceObject: {fileID: 6383690016698399389, guid: d57f6e773150ee04eaaeee1819207c19, type: 3}
   m_PrefabInstance: {fileID: 2039316415}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1626001625 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9481c9adcaffe394a89d1c570a0b182a, type: 3}
-  m_PrefabInstance: {fileID: 1933403138}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1628523640
 GameObject:
@@ -1782,6 +1772,11 @@ MonoBehaviour:
   m_IgnoreFromBuild: 1
   m_ApplyToChildren: 1
   m_AffectedAgents: 
+--- !u!4 &1828830729 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 393619955969274662, guid: 3ebe83388031056469ea1dc7558fb35a, type: 3}
+  m_PrefabInstance: {fileID: 5261151928894147145}
+  m_PrefabAsset: {fileID: 0}
 --- !u!20 &1864331817 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 2303789526605372978, guid: 63038ed45ac84dd4980125a0321ac740, type: 3}
@@ -1793,7 +1788,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1477514176}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 9481c9adcaffe394a89d1c570a0b182a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1887,7 +1882,6 @@ Transform:
   - {fileID: 1584925464}
   - {fileID: 73390309}
   - {fileID: 431302762}
-  - {fileID: 1477514176}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2039316415
@@ -1900,15 +1894,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1394242178694238452, guid: d57f6e773150ee04eaaeee1819207c19, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.20567799
+      value: -7.8603334
       objectReference: {fileID: 0}
     - target: {fileID: 1394242178694238452, guid: d57f6e773150ee04eaaeee1819207c19, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.2499981
+      value: 6.000002
       objectReference: {fileID: 0}
     - target: {fileID: 1394242178694238452, guid: d57f6e773150ee04eaaeee1819207c19, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.4407597
+      value: -6.213896
       objectReference: {fileID: 0}
     - target: {fileID: 2904225763937426848, guid: d57f6e773150ee04eaaeee1819207c19, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1949,6 +1943,18 @@ PrefabInstance:
     - target: {fileID: 2904225763937426848, guid: d57f6e773150ee04eaaeee1819207c19, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4039847385107362750, guid: d57f6e773150ee04eaaeee1819207c19, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.8603334
+      objectReference: {fileID: 0}
+    - target: {fileID: 4039847385107362750, guid: d57f6e773150ee04eaaeee1819207c19, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 4039847385107362750, guid: d57f6e773150ee04eaaeee1819207c19, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -6.213896
       objectReference: {fileID: 0}
     - target: {fileID: 4316579903135406382, guid: d57f6e773150ee04eaaeee1819207c19, type: 3}
       propertyPath: dashClip
@@ -2001,11 +2007,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1635724668}
   m_SourcePrefab: {fileID: 100100000, guid: d57f6e773150ee04eaaeee1819207c19, type: 3}
---- !u!4 &2107809293 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8e20e390c40830748b6c121547e5e9a4, type: 3}
-  m_PrefabInstance: {fileID: 780616458}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2129468641
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2082,6 +2083,18 @@ PrefabInstance:
       propertyPath: Target.TrackingTarget
       value: 
       objectReference: {fileID: 1488910992}
+    - target: {fileID: 7858889972963208226, guid: 63038ed45ac84dd4980125a0321ac740, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.8730054
+      objectReference: {fileID: 0}
+    - target: {fileID: 7858889972963208226, guid: 63038ed45ac84dd4980125a0321ac740, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.9800034
+      objectReference: {fileID: 0}
+    - target: {fileID: 7858889972963208226, guid: 63038ed45ac84dd4980125a0321ac740, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -6.2012215
+      objectReference: {fileID: 0}
     - target: {fileID: 8934230536413775603, guid: 63038ed45ac84dd4980125a0321ac740, type: 3}
       propertyPath: dashClip
       value: 
@@ -2404,3 +2417,6 @@ SceneRoots:
   - {fileID: 4851521264677864521}
   - {fileID: 1059227307}
   - {fileID: 235780680}
+  - {fileID: 694628012}
+  - {fileID: 1933403138}
+  - {fileID: 780616458}
