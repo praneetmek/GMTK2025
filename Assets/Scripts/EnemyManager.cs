@@ -8,8 +8,11 @@ public class EnemyManager : MonoBehaviour
 
     public float spawnRadius = 30;
     public float spawnRate = 0.2f;
+    public float difficultyScalingTimer = 30;
+    public float scalingFactor = 1.2f;
     public EmenyController enemy;
 
+    private float _timeSinceLastDiffIncrease;
     private float _timeSinceLastSpawn;
     private void Awake()
     {
@@ -20,12 +23,19 @@ public class EnemyManager : MonoBehaviour
     void Start()
     {
         _timeSinceLastSpawn = 0;
+        _timeSinceLastDiffIncrease = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
         _timeSinceLastSpawn += Time.deltaTime;
+        _timeSinceLastDiffIncrease += Time.deltaTime;
+        if(_timeSinceLastDiffIncrease > difficultyScalingTimer)
+        {
+            spawnRate *= scalingFactor;
+            _timeSinceLastDiffIncrease = 0;
+        }
         int numEnemies = GetNumberOfEnemiesInWorld();
         if(_timeSinceLastSpawn > 1/spawnRate)
         {
