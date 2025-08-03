@@ -21,7 +21,7 @@ public class LoopScript : MonoBehaviour
 
     public void AddEssence()
     {
-        OrbUIScript orb = Instantiate(orbPrefab, downTrack.transform.position + new Vector3 (downTrack.rect.width/2,300,0), Quaternion.identity, downTrack);
+        OrbUIScript orb = Instantiate(orbPrefab, new Vector3(downTrack.transform.position.x + downTrack.rect.width/4, bag.transform.position.y - bag.rect.height, 0), Quaternion.identity, downTrack);
         orb.target_y = turtle.rect.y + turtle.rect.height;
         orb.dir = -1;
     }
