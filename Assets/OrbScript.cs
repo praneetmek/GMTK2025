@@ -23,7 +23,7 @@ public class OrbScript : MonoBehaviour
         {
             return;
         }
-        if (_rb.linearVelocity.magnitude < 5.0)
+        if (_rb.linearVelocity.magnitude < 20.0)
         {
             _rb.AddForce(new Vector3(0, transform.position.y, 0) - transform.position);
         }
