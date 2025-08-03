@@ -158,6 +158,7 @@ Transform:
   - {fileID: 1790016895}
   - {fileID: 1186435577}
   - {fileID: 700292123}
+  - {fileID: 1940489742}
   - {fileID: 1154923294}
   - {fileID: 454346311}
   - {fileID: 818698887}
@@ -11064,9 +11065,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1790016894}
   spawnRadius: 40
-  spawnRate: 0.15
+  spawnRate: 0.1
   difficultyScalingTimer: 60
-  scalingFactor: 1.2
+  scalingFactor: 1.1
   enemy: {fileID: 7993082644313764628, guid: 4101f55010eaae042bf5ae87aa7569cc, type: 3}
 --- !u!1 &1193012789
 GameObject:
@@ -11767,7 +11768,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
@@ -18626,6 +18627,55 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aef11517b7923a548b8b8da59c24572b, type: 3}
+--- !u!1 &1940489741
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1940489742}
+  - component: {fileID: 1940489743}
+  m_Layer: 0
+  m_Name: HealthSpawnerManger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1940489742
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940489741}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 15153909}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1940489743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940489741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d229d062e6413647a3b2436b35f887d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minRadius: 5
+  maxRadius: 30
+  healthPickupPrefab: {fileID: 2872104368473074148, guid: 83e3b4afb8d260d46ae681756e46d89c, type: 3}
+  spawnHeight: 1
+  spawnInterval: 120
 --- !u!1001 &1948087552
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20880,6 +20930,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6926297131951668061, guid: 19fbfc922d87cb744b723ec0d1fbd935, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c308e6e9bc061324295a8dc98f37b248, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

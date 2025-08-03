@@ -11,8 +11,8 @@ public class MotherTurtle : MonoBehaviour
     public LoopScript loop;
     public List<Transform> spawnPositions = new List<Transform>();
 
-    private List<GameObject> spawnedTurtles = new List<GameObject>();
-    private HashSet<int> occupiedPositions = new HashSet<int>();
+    public List<GameObject> spawnedTurtles = new List<GameObject>();
+    public HashSet<int> occupiedPositions = new HashSet<int>();
 
     public UIAnimations uIAnimations;
 
@@ -32,11 +32,12 @@ public class MotherTurtle : MonoBehaviour
 
     void Update()
     {
-
+        spawnedTurtles.RemoveAll(t => t == null);
     }
 
     public void SpawnTurtles(int count)
     {
+        Debug.Log("Spawning " + count + " turtles.");
         int turtlesToSpawn = Mathf.Min(count, maxTurtles - spawnedTurtles.Count);
         List<int> availableIndices = new List<int>();
         for (int i = 0; i < spawnPositions.Count; i++)
@@ -57,12 +58,14 @@ public class MotherTurtle : MonoBehaviour
 
             Turtle follower = turtle.GetComponent<Turtle>();
             follower.player = PlayerTransform;
+
             if (follower != null)
             {
+                GameObject capturedTurtle = turtle; // Capture the current turtle instance
                 follower.OnStartFollowing += () =>
                 {
                     occupiedPositions.Remove(posIdx);
-                    spawnedTurtles.Remove(turtle);
+                    spawnedTurtles.Remove(capturedTurtle); // Use the captured reference
                 };
             }
         }

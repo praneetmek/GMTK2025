@@ -38,6 +38,11 @@ public class GameManager : MonoBehaviour
 
     public void ChangeHP(int i)
     {
+        if (HP + i > 100)
+        {
+            HP = 100;
+            return;
+        }
         HP += i;
         if(HP <= 0)
         {
@@ -48,7 +53,7 @@ public class GameManager : MonoBehaviour
 
     public void AddEssence(int i)
     {
-        Essence = Mathf.Min(100, Essence + 1);
+        Essence = Mathf.Min(100, Essence + 2);
     }
 
     public void AddTurtle()

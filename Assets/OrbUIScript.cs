@@ -9,7 +9,7 @@ public class OrbUIScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = transform.position + dir * new Vector3(0,  30f * Time.deltaTime, 0);
+        transform.position = transform.position + dir * new Vector3(0,  60f * Time.deltaTime, 0);
         if(Mathf.Abs(transform.position.y - target_y) < 10)
         {
             if(dir == -1)
