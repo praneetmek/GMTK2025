@@ -10820,6 +10820,8 @@ MonoBehaviour:
   target: {fileID: 1756830380}
   spawnRadius: 40
   spawnRate: 0.2
+  difficultyScalingTimer: 60
+  scalingFactor: 1.2
   enemy: {fileID: 2364857316211103864, guid: 1cba13456d30e774b91f2889b24bdb98, type: 3}
 --- !u!1 &1193012789
 GameObject:
