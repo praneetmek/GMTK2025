@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
         HP += i;
         if(HP <= 0)
         {
-            SceneManager.LoadScene(2); 
+            SceneManager.LoadScene(1); 
         }
     }
 

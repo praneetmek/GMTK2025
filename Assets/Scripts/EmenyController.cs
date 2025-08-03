@@ -13,16 +13,16 @@ public class EmenyController : MonoBehaviour
     public GameObject OrbPrefab;
     private Material _defaultMaterial;
 
-    private MeshRenderer _mr;
+    public MeshRenderer mr;
     private Rigidbody _rb;
 
     private bool _isStunned;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _mr = GetComponent<MeshRenderer>();
+        // _mr = GetComponent<MeshRenderer>();
         _rb = GetComponent<Rigidbody>();
-        _defaultMaterial = _mr.material;
+        _defaultMaterial = mr.material;
         _isStunned = false;
     }
 
@@ -60,9 +60,9 @@ public class EmenyController : MonoBehaviour
     {
         _isStunned = true;
         _rb.linearVelocity = Vector3.zero;
-        _mr.material = DamageMaterial;
+        mr.material = DamageMaterial;
         yield return new WaitForSeconds(stunTime);
-        _mr.material = _defaultMaterial;
+        mr.material = _defaultMaterial;
         _isStunned = false;
     }
 
