@@ -474,10 +474,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2732301763089064765}
   - {fileID: 5569612839293197470}
   - {fileID: 6870041813862781700}
   - {fileID: 4739736487831961692}
+  - {fileID: 2732301763089064765}
   m_Father: {fileID: 4772392529972639546}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
@@ -535,8 +535,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a41a966295030dc47811b7a1335adbaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  essencePrefab: {fileID: 4644052731285986359, guid: 7c3491717c12ce147a4717ddfbd13161, type: 3}
+  orbPrefab: {fileID: 0}
+  turtle: {fileID: 0}
   downTrack: {fileID: 5569612839293197470}
+  upTrack: {fileID: 0}
+  bag: {fileID: 0}
 --- !u!1 &6897878122600474219
 GameObject:
   m_ObjectHideFlags: 0

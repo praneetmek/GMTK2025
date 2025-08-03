@@ -37,7 +37,7 @@
                     "name": "Interact",
                     "type": "Button",
                     "id": "852140f2-7766-474d-8707-702459ba45f3",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "Hold",
                     "initialStateCheck": false
@@ -100,6 +100,15 @@
                     "name": "Swap",
                     "type": "Button",
                     "id": "2a7cd645-df58-4229-84e0-e24d485f1c00",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "5c3b10b7-6b5a-4367-8267-589102a90d5f",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -506,11 +515,22 @@
                 {
                     "name": "",
                     "id": "cbc8a1c2-536f-4a1d-99a9-9fb0564002e0",
-                    "path": "<Keyboard>/z",
+                    "path": "<Keyboard>/tab",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse",
+                    "groups": ";Keyboard&Mouse;Touch",
                     "action": "Swap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8c82ea44-a18a-4c00-8c8e-11d2eb359824",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad;Keyboard&Mouse",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

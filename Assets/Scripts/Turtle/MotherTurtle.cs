@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 public class MotherTurtle : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class MotherTurtle : MonoBehaviour
     public GameObject turtlePrefab;
     public int maxTurtles = 10;
     public int turtlesToSpawn = 3;
+    public LoopScript loop;
     public List<Transform> spawnPositions = new List<Transform>();
 
     private List<GameObject> spawnedTurtles = new List<GameObject>();
@@ -18,9 +20,14 @@ public class MotherTurtle : MonoBehaviour
 
     public GameObject turtleInstanceHolder; 
 
+    // Add SFX fields
+    public List<AudioClip> returnSFX;
+    private AudioSource audioSource;
+
     void Start()
     {
         SpawnTurtles(turtlesToSpawn);
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -64,6 +71,17 @@ public class MotherTurtle : MonoBehaviour
     public void OnPlayerReturnedTurtle(int turtlesToSpawn)
     {
         SpawnTurtles(turtlesToSpawn);
+        PlayReturnSFX(); // Play SFX when player returns turtles
+    }
+
+    // Play a random SFX from the list
+    private void PlayReturnSFX()
+    {
+        if (returnSFX != null && returnSFX.Count > 0 && audioSource != null)
+        {
+            int index = Random.Range(0, returnSFX.Count);
+            audioSource.PlayOneShot(returnSFX[index]);
+        }
     }
 
     // Interaction logic similar to Turtle.cs
@@ -96,8 +114,18 @@ public class MotherTurtle : MonoBehaviour
         if (turtlesFollowing > 0)
         {
             SpawnTurtles(turtlesFollowing);
-
+            PlayReturnSFX(); // Play SFX when player returns turtles
             adventurer.ClearFollowingTurtles();
+        }
+        StartCoroutine(AddTurtlesToLoop(turtlesFollowing));
+    }
+
+    private IEnumerator AddTurtlesToLoop(int numTurtles)
+    {
+        for (int i = 0; i< numTurtles; i++)
+        {
+            loop.AddTurtle();
+            yield return new WaitForSeconds(0.3f);
         }
     }
 }

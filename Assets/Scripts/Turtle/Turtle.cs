@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 using System;
+using System.Collections.Generic; // Add this
 
 public class Turtle : MonoBehaviour
 {
@@ -15,9 +16,14 @@ public class Turtle : MonoBehaviour
     // Add this event for when the turtle starts following
     public event Action OnStartFollowing;
 
+    // Add a list of SFX clips
+    public List<AudioClip> followSFX;
+    private AudioSource audioSource;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -60,7 +66,18 @@ public class Turtle : MonoBehaviour
         if (!isFollowing)
         {
             isFollowing = true;
+            // PlayFollowSFX(); // Play SFX when starting to follow
             OnStartFollowing?.Invoke();
+        }
+    }
+
+    // Play a random SFX from the list
+    public void PlayFollowSFX()
+    {
+        if (followSFX != null && followSFX.Count > 0 && audioSource != null)
+        {
+            int index = UnityEngine.Random.Range(0, followSFX.Count);
+            audioSource.PlayOneShot(followSFX[index]);
         }
     }
 }
