@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 public class MotherTurtle : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class MotherTurtle : MonoBehaviour
     public GameObject turtlePrefab;
     public int maxTurtles = 10;
     public int turtlesToSpawn = 3;
+    public LoopScript loop;
     public List<Transform> spawnPositions = new List<Transform>();
 
     private List<GameObject> spawnedTurtles = new List<GameObject>();
@@ -98,6 +100,16 @@ public class MotherTurtle : MonoBehaviour
             SpawnTurtles(turtlesFollowing);
 
             adventurer.ClearFollowingTurtles();
+        }
+        StartCoroutine(AddTurtlesToLoop(turtlesFollowing));
+    }
+
+    private IEnumerator AddTurtlesToLoop(int numTurtles)
+    {
+        for (int i = 0; i< numTurtles; i++)
+        {
+            loop.AddTurtle();
+            yield return new WaitForSeconds(0.3f);
         }
     }
 }

@@ -20,6 +20,7 @@ public class CharacterController : MonoBehaviour
     public float timeBetweenDashes;
     public AudioClip dashClip;
     public AudioClip[] footsteps;
+    public bool dashWithEssence;
 
     private AudioSource _audioSource;
     private bool _isDashing;
@@ -98,17 +99,22 @@ public class CharacterController : MonoBehaviour
     {
         if(CanDash())
         {
-
             _audioSource.PlayOneShot(dashClip);
             _isDashing = true;
             _currentDashTime = 0;
+            if (dashWithEssence)
+            {
+                GameManager.Instance.Essence--;
+            }
         }
 
     }
 
     public bool CanDash()
     {
-        return _timeSinceLastDash > timeBetweenDashes;
+        bool dashCDSatisfied = _timeSinceLastDash > timeBetweenDashes;
+        bool essenceDashSatisfied = !dashWithEssence || GameManager.Instance.Essence > 0;
+        return dashCDSatisfied && essenceDashSatisfied;
     }
     private void HandleDash()
     {
