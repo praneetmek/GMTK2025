@@ -7,7 +7,10 @@ public class EnemyManager : MonoBehaviour
     public Transform world;
     public GameObject target;
 
+    public float spawnRadius = 30;
     public EmenyController enemy;
+
+    private float _timeSinceLastSpawn;
     private void Awake()
     {
         if (Instance == null)
@@ -16,15 +19,17 @@ public class EnemyManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        _timeSinceLastSpawn = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        _timeSinceLastSpawn += Time.deltaTime;
         int numEnemies = GetNumberOfEnemiesInWorld();
-        if(numEnemies < 10)
+        if(numEnemies < 10 && _timeSinceLastSpawn > 0.5)
         {
+            _timeSinceLastSpawn = 0;
             SpawnEnemy();
         }
     }
@@ -52,6 +57,6 @@ public class EnemyManager : MonoBehaviour
     Vector2 RandomSpawnPoint()
     {
         float random = Random.Range(0f, 260f);
-        return 20 * new Vector2(Mathf.Cos(random), Mathf.Sin(random));
+        return spawnRadius * new Vector2(Mathf.Cos(random), Mathf.Sin(random));
     }
 }
