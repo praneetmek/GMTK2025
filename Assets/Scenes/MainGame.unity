@@ -20725,6 +20725,18 @@ PrefabInstance:
       propertyPath: turtleInstanceHolder
       value: 
       objectReference: {fileID: 73390308}
+    - target: {fileID: 3713747582399979051, guid: 19fbfc922d87cb744b723ec0d1fbd935, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.706
+      objectReference: {fileID: 0}
+    - target: {fileID: 3713747582399979051, guid: 19fbfc922d87cb744b723ec0d1fbd935, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3713747582399979051, guid: 19fbfc922d87cb744b723ec0d1fbd935, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.72
+      objectReference: {fileID: 0}
     - target: {fileID: 4611822604427907658, guid: 19fbfc922d87cb744b723ec0d1fbd935, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.51
