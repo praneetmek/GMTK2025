@@ -13433,7 +13433,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1496673097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20481,10 +20481,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 25336425}
     - target: {fileID: 2074991887033160561, guid: 19fbfc922d87cb744b723ec0d1fbd935, type: 3}
-      propertyPath: turtlesToSpawn
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2074991887033160561, guid: 19fbfc922d87cb744b723ec0d1fbd935, type: 3}
       propertyPath: PlayerTransform
       value: 
       objectReference: {fileID: 2129468643}
@@ -20532,10 +20528,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6926297131951668061, guid: 19fbfc922d87cb744b723ec0d1fbd935, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 7f115bdce9409d9489cd26d2a8b0d919, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
